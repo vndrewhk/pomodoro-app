@@ -7,6 +7,16 @@ import styles from "./Header.module.css";
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const loginHandler = () => {
+    setIsLoggedIn(true);
+    console.log("Logging in...");
+  };
+
+  const logoutHandler = () => {
+    setIsLoggedIn(false);
+    console.log("Logged out!");
+  };
+
   return (
     <div className={styles.header}>
       <div className={styles.headerContainer}>
@@ -20,11 +30,19 @@ const Header = () => {
           </HeaderButton>
           <div>
             {isLoggedIn ? (
-              <HeaderButton variant="contained" disableElevation>
+              <HeaderButton
+                onClick={logoutHandler}
+                variant="contained"
+                disableElevation
+              >
                 Logout
               </HeaderButton>
             ) : (
-              <HeaderButton variant="contained" disableElevation>
+              <HeaderButton
+                onClick={loginHandler}
+                variant="contained"
+                disableElevation
+              >
                 Login
               </HeaderButton>
             )}

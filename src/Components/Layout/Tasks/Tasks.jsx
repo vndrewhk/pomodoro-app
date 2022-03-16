@@ -1,5 +1,13 @@
-const Tasks = () =>{
-    return <div>Tasks</div>
-}
+import styles from "./Tasks.module.css";
+import TaskTable from "./TaskTable";
 
-export default Tasks
+const Tasks = () => {
+  return (
+    <div className={styles.taskContainer}>
+      <h1>Tasks</h1>
+      <TaskTable></TaskTable>
+    </div>
+  );
+};
+
+export default Tasks;
