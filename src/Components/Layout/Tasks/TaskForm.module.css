@@ -1,0 +1,13 @@
+.taskForm {
+  border: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputForm {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+}

@@ -1,6 +1,7 @@
 import IndividualTask from "./IndividualTask";
 import styles from "./Table.module.css";
 
+
 const TaskTable = (props) => {
   let DUMMY_TASKS = { id: "p1", task: "Eat Dinner", time: "5:00pm" };
   const deleteTaskHandler = (id) => {
@@ -23,6 +24,7 @@ const TaskTable = (props) => {
         taskInfo={DUMMY_TASKS}
         deleteTaskHandler={deleteTaskHandler.bind(null, "p1")}
       ></IndividualTask>
+    
     </div>
   );
 };

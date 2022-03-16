@@ -1,3 +1,4 @@
+import TaskForm from "./TaskForm";
 import styles from "./Tasks.module.css";
 import TaskTable from "./TaskTable";
 
@@ -6,6 +7,7 @@ const Tasks = () => {
     <div className={styles.taskContainer}>
       <h1>Tasks</h1>
       <TaskTable></TaskTable>
+      <TaskForm></TaskForm>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 .timerContainer {
-  flex-grow: 2;
+  width: 60%;
   display: flex;
   flex-direction: column;
   border: 2px solid red;

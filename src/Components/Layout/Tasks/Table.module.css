@@ -1,7 +1,7 @@
 .tableContainer {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  /* flex-grow: 1; */
   width:50%;
   /* align-items: center; */
   border: 2px yellow solid;
