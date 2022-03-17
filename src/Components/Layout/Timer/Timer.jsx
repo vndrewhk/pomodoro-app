@@ -8,9 +8,12 @@ import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import { useEffect, useRef, useState } from "react";
 import * as React from "react";
 import styles from "./Timer.module.css";
+import ReactPlayer from "react-player";
+
+import alarmAudio from "../../../assets/sounds/AlarmClock.mp3";
 
 const Timer = () => {
-  let [timerValue, setTimerValue] = useState(1500);
+  let [timerValue, setTimerValue] = useState(5);
   let [isActive, setIsActive] = useState(false);
 
   const timerInput = useRef(null);
@@ -30,9 +33,24 @@ const Timer = () => {
     setIsActive(false);
   };
 
+  // let alarmAudio = new Audio("../../../assets/sounds/AlarmClock.mp3");
+  // let timerAudios = [];
+  let audio = new Audio(alarmAudio);
+
+  // alarmAudio.play();
   const timerFormHandler = () => {};
+  let getMethods = (obj) =>
+    Object.getOwnPropertyNames(obj).filter(
+      (item) => typeof obj[item] === "function"
+    );
+
+  // console.log(getMethods(audio));
 
   useEffect(() => {
+    if (timerValue === 0 && isActive) {
+      setIsActive(false);
+      audio.play();
+    }
     if (timerValue > 0 && isActive) {
       const timer = setTimeout(() => {
         setTimerValue((prevState) => prevState - 1);
@@ -42,37 +60,11 @@ const Timer = () => {
     }
   });
 
-  // useEffect(() => {
-  //   const convertedTimer = value.getMinutes() * 60 + value.getSeconds();
-  //   setTimerValue(convertedTimer);
-  // }, [value]);
-
-  // setValue((prevState) => prevState.seconds - 1);
-
   return (
     // <LocalizationProvider dateAdapter={AdapterDateFns}>
     <div className={styles.timerContainer}>
       <h1>Timer</h1>
-      {/* <h2>Enter a time - </h2> */}
-      {/* <Stack spacing={3}>
-          <TimePicker
-            ampmInClock
-            views={["minutes", "seconds"]}
-            inputFormat="mm:ss"
-            mask="__:__"
-            label="Minutes and seconds"
-            value={value}
-            onBlur={(newValue) => {
-              // setTimerValue(newValue);
-              setValue(newValue);
-              console.log(newValue.getMinutes());
-              console.log(newValue.getSeconds());
-            }}
-            renderInput={(params) => <TextField {...params} />}
-          />
-        </Stack> */}
 
-      {/* <p>{timerValue}</p> */}
       <h1>{convertedTime}</h1>
       <div className={styles.timerButtons}>
         <Button variant="contained" onClick={startTimer}>
