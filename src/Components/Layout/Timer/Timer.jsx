@@ -13,8 +13,14 @@ import ReactPlayer from "react-player";
 import alarmAudio from "../../../assets/sounds/AlarmClock.mp3";
 
 const Timer = () => {
-  let [timerValue, setTimerValue] = useState(5);
+  let [timerValue, setTimerValue] = useState(1);
   let [isActive, setIsActive] = useState(false);
+  let [audio, setAudio] = useState(new Audio(alarmAudio));
+  //placeholder, will use local storage to count these later
+  let [pomodoroCounter, setPomodoroCounter] = useState(0);
+  let [displayMessage, setDisplayMessage] = useState(
+    "Ready to get productive?"
+  );
 
   const timerInput = useRef(null);
   const timerInputVal = timerInput.current;
@@ -33,9 +39,21 @@ const Timer = () => {
     setIsActive(false);
   };
 
+  const resetTimer = () => {
+    setIsActive(false);
+    setTimerValue(1);
+    audio.pause();
+    audio.fastSeek(0);
+  };
+
+  const stopAudio = () => {
+    audio.pause();
+    audio.fastSeek(0);
+    setIsActive(false);
+  };
+
   // let alarmAudio = new Audio("../../../assets/sounds/AlarmClock.mp3");
   // let timerAudios = [];
-  let audio = new Audio(alarmAudio);
 
   // alarmAudio.play();
   const timerFormHandler = () => {};
@@ -50,6 +68,10 @@ const Timer = () => {
     if (timerValue === 0 && isActive) {
       setIsActive(false);
       audio.play();
+      if (pomodoroCounter === 4) {
+        setDisplayMessage("Time for a break!");
+      }
+      setPomodoroCounter((prevState) => prevState + 1);
     }
     if (timerValue > 0 && isActive) {
       const timer = setTimeout(() => {
@@ -67,12 +89,27 @@ const Timer = () => {
 
       <h1>{convertedTime}</h1>
       <div className={styles.timerButtons}>
-        <Button variant="contained" onClick={startTimer}>
-          Start Timer
+        {isActive ? (
+          <Button variant="contained" onClick={pauseTimer}>
+            Pause
+          </Button>
+        ) : timerValue === 0 ? (
+          <Button variant="contained" onClick={stopAudio}>
+            Stop
+          </Button>
+        ) : (
+          <Button variant="contained" onClick={startTimer}>
+            Start
+          </Button>
+        )}
+        <Button variant="contained" onClick={resetTimer}>
+          Reset
         </Button>
-        <Button variant="contained" onClick={pauseTimer}>
-          Pause Timer
-        </Button>
+      </div>
+
+      <div className={styles.pomodoroMessage}>
+        <h1>{displayMessage}</h1>
+        <h2>Pomodoros: {pomodoroCounter}</h2>
       </div>
     </div>
     // </LocalizationProvider>
