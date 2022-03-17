@@ -1,19 +1,13 @@
-import { Button, Stack } from "@mui/material";
-import TimePicker from "@mui/lab/TimePicker";
-import TextField from "@mui/material/TextField";
-
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import { Button } from "@mui/material";
 
 import { useEffect, useRef, useState } from "react";
 import * as React from "react";
 import styles from "./Timer.module.css";
-import ReactPlayer from "react-player";
 
 import alarmAudio from "../../../assets/sounds/AlarmClock.mp3";
 
-const Timer = () => {
-  let [timerValue, setTimerValue] = useState(1);
+const Timer = (props) => {
+  let [timerValue, setTimerValue] = useState(props.timerValue);
   let [isActive, setIsActive] = useState(false);
   let [audio, setAudio] = useState(new Audio(alarmAudio));
   //placeholder, will use local storage to count these later
@@ -21,11 +15,6 @@ const Timer = () => {
   let [displayMessage, setDisplayMessage] = useState(
     "Ready to get productive?"
   );
-
-  const timerInput = useRef(null);
-  const timerInputVal = timerInput.current;
-
-  // const [value, setValue] = React.useState(new Date());
 
   let convertedTime = `${Math.floor(timerValue / 60)}:${
     timerValue % 60 < 10 ? "0" + (timerValue % 60) : timerValue % 60
@@ -41,7 +30,7 @@ const Timer = () => {
 
   const resetTimer = () => {
     setIsActive(false);
-    setTimerValue(1);
+    setTimerValue(props.timerValue);
     audio.pause();
     audio.fastSeek(0);
   };
@@ -51,18 +40,6 @@ const Timer = () => {
     audio.fastSeek(0);
     setIsActive(false);
   };
-
-  // let alarmAudio = new Audio("../../../assets/sounds/AlarmClock.mp3");
-  // let timerAudios = [];
-
-  // alarmAudio.play();
-  const timerFormHandler = () => {};
-  let getMethods = (obj) =>
-    Object.getOwnPropertyNames(obj).filter(
-      (item) => typeof obj[item] === "function"
-    );
-
-  // console.log(getMethods(audio));
 
   useEffect(() => {
     if (timerValue === 0 && isActive) {
@@ -81,6 +58,11 @@ const Timer = () => {
       return () => clearTimeout(timer);
     }
   });
+
+  // const checkTimer = () => {
+  //   console.log(timerValue);
+  //   console.log(convertedTime);
+  // };
 
   return (
     // <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -111,7 +93,10 @@ const Timer = () => {
         <h1>{displayMessage}</h1>
         <h2>Pomodoros: {pomodoroCounter}</h2>
       </div>
+
+      {/* <button onClick={checkTimer}>check</button> */}
     </div>
+
     // </LocalizationProvider>
   );
 };

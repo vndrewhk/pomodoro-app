@@ -16,19 +16,19 @@ const ModeSelector = () => {
     <div className={styles.pomodoroSelector}>
       <TypeButton
         variant="contained"
-        onClick={modeSelectHandler.bind(null, "Pomodoro")}
+        onClick={modeSelectHandler.bind(null, 1500)}
       >
         Pomodoro
       </TypeButton>
       <TypeButton
         variant="contained"
-        onClick={modeSelectHandler.bind(null, "Short")}
+        onClick={modeSelectHandler.bind(null, 300)}
       >
         Short Break
       </TypeButton>
       <TypeButton
         variant="contained"
-        onClick={modeSelectHandler.bind(null, "Long")}
+        onClick={modeSelectHandler.bind(null, 600)}
       >
         Long Break
       </TypeButton>
