@@ -4,10 +4,35 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+}
+
+.inputContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  /* padding-left: 20%; */
+}
+
+.inputButtons {
+  display: flex;
+  width: 80%;
+  justify-content: flex-end;
 }
 
 .inputForm {
   display: flex;
   flex-direction: row;
   padding: 5px;
+  align-items: flex-end;
+  width: 80%;
+  color: white;
+}
+
+.inputButtonsDivider {
+  /* border: 2px solid red; */
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
 }

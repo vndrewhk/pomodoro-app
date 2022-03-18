@@ -6,6 +6,8 @@ import TextField from "@mui/material/TextField";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DateTimePicker from "@mui/lab/DateTimePicker";
+import TimerButton from "../../UI/TimerButton";
+import { withStyles } from "@mui/styles";
 
 const TaskForm = () => {
   const taskInput = useRef(null);
@@ -21,10 +23,40 @@ const TaskForm = () => {
 
   const logInfo = () => {
     console.log(taskValue);
+    console.log(value);
+    console.log(value.toLocaleDateString());
+    console.log(
+      value.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+    );
   };
 
   const toggleFormHandler = () => {
     setFormToggle((prevState) => !prevState);
+  };
+
+  const cancelFormHandler = () => {
+    setFormToggle((prevState) => !prevState);
+    //clear ref value
+    console.log("Cancelling task");
+  };
+
+  const submitFormHandler = () => {
+    //store into local storage
+    console.log("Adding task...");
+    // add task_id to each task so we can iterate
+    let dateValue = {
+      date: value.toLocaleDateString(),
+      time: value.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      }),
+    };
+    let taskInfo = { taskValue, dateValue };
+    // whenever this happens, we should manually add this into the tasks list state
+    localStorage.setItem(
+      `task_${localStorage.length - 1}`,
+      JSON.stringify(taskInfo)
+    );
   };
 
   const [value, setValue] = React.useState(new Date());
@@ -33,26 +65,43 @@ const TaskForm = () => {
       <h4 onClick={toggleFormHandler}>Task Form</h4>
       {/* <TextField */}
       {formToggle && (
-        <div className={styles.inputForm}>
-          <TextField
-            id="task name"
-            label="Task"
-            variant="standard"
-            inputRef={taskInput}
-            onChange={taskChangeHandler}
-          />
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <DateTimePicker
-              renderInput={(props) => <TextField {...props} />}
-              label="DateTimePicker"
-              value={value}
-              onChange={(newValue) => {
-                setValue(newValue);
+        <div className={styles.inputContainer}>
+          <div className={styles.inputForm}>
+            <TextField
+              id="task name"
+              label="Task"
+              variant="standard"
+              inputRef={taskInput}
+              color="primary"
+              onChange={taskChangeHandler}
+              sx={{
+                minWidth: 6 / 10,
               }}
             />
-          </LocalizationProvider>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <DateTimePicker
+                renderInput={(props) => <TextField {...props} />}
+                label="DateTimePicker"
+                value={value}
+                onChange={(newValue) => {
+                  setValue(newValue);
+                }}
+              />
+            </LocalizationProvider>
+          </div>
+          <div className={styles.inputButtons}>
+            <div className={styles.inputButtonsDivider}>
+              <TimerButton variant="contained" onClick={toggleFormHandler}>
+                Cancel
+              </TimerButton>
+              <TimerButton variant="contained" onClick={submitFormHandler}>
+                Save
+              </TimerButton>
+            </div>
+          </div>
         </div>
       )}
+
       <button onClick={logInfo}>check</button>
     </div>
   );
