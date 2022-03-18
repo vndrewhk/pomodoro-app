@@ -5,8 +5,19 @@
   border: 2px solid red;
   /* justify-content: center; */
   align-items: center;
+  color: white;
+}
+
+.timer {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  /* border: 2px solid red; */
+  /* justify-content: center; */
+  align-items: center;
 }
 
 .timerButtons {
-  border: 2px solid yellow;
+  /* border: 2px solid yellow; */
 }

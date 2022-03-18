@@ -25,6 +25,7 @@
   justify-content: center;
   align-items: center;
   flex-grow: 2;
+  font-family: "Pangolin";
 }
 
 .headerLinks {

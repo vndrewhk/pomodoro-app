@@ -6,6 +6,7 @@
     "@date-io/date-fns": "^2.13.1",
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
+    "@fontsource/pangolin": "^4.5.3",
     "@fontsource/roboto": "^4.5.3",
     "@mui/icons-material": "^5.5.1",
     "@mui/lab": "^5.0.0-alpha.73",
