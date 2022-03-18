@@ -3,9 +3,13 @@ import { Button } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import * as React from "react";
 import styles from "./Timer.module.css";
-
+import SkipNextIcon from "@mui/icons-material/SkipNext";
 import alarmAudio from "../../../assets/sounds/AlarmClock.mp3";
-
+import ReplayIcon from "@mui/icons-material/Replay";
+import TimerButton from "../../UI/TimerButton";
+//if pomodoro count % 5 -> long break
+//after each pomodoro -> short break
+//set redux to appropriate value, change display message based on redux?
 const Timer = (props) => {
   let [timerValue, setTimerValue] = useState(props.timerValue);
   let [isActive, setIsActive] = useState(false);
@@ -54,15 +58,11 @@ const Timer = (props) => {
       const timer = setTimeout(() => {
         setTimerValue((prevState) => prevState - 1);
         console.log("tick..." + timerValue);
+        // console.log( )
       }, 1000);
       return () => clearTimeout(timer);
     }
   });
-
-  // const checkTimer = () => {
-  //   console.log(timerValue);
-  //   console.log(convertedTime);
-  // };
 
   return (
     // <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -70,25 +70,35 @@ const Timer = (props) => {
       <h1>Timer</h1>
 
       <h1>{convertedTime}</h1>
-      <div className={styles.timerButtons}>
-        {isActive ? (
-          <Button variant="contained" onClick={pauseTimer}>
-            Pause
-          </Button>
-        ) : timerValue === 0 ? (
-          <Button variant="contained" onClick={stopAudio}>
-            Stop
-          </Button>
-        ) : (
-          <Button variant="contained" onClick={startTimer}>
-            Start
-          </Button>
-        )}
-        <Button variant="contained" onClick={resetTimer}>
-          Reset
-        </Button>
-      </div>
-
+      <>
+        <div className={styles.timerButtons}>
+          <>
+            {isActive ? (
+              <TimerButton variant="contained" onClick={pauseTimer}>
+                Pause
+              </TimerButton>
+            ) : timerValue === 0 ? (
+              <TimerButton variant="contained" onClick={stopAudio}>
+                Stop
+              </TimerButton>
+            ) : (
+              <TimerButton variant="contained" onClick={startTimer}>
+                Start
+              </TimerButton>
+            )}
+            <TimerButton variant="contained" onClick={resetTimer}>
+              <ReplayIcon></ReplayIcon>
+            </TimerButton>
+          </>
+          {/* need to style this so it's separate and doesnt push other buttons */}
+     
+        </div>
+        {(isActive || timerValue < props.timerValue) && (
+            <Button>
+              <SkipNextIcon></SkipNextIcon>
+            </Button>
+          )}
+      </>
       <div className={styles.pomodoroMessage}>
         <h1>{displayMessage}</h1>
         <h2>Pomodoros: {pomodoroCounter}</h2>

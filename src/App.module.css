@@ -1,0 +1,21 @@
+.App {
+  /* background-color: #282c34; */
+  /* background-color: #3b507a; */
+  height: 150vh;
+  /* text-align: center; */
+}
+
+/* pomodoro */
+.time-1500 {
+  background-color: #3b507a;
+}
+
+/* long break */
+.time-600 {
+  background-color: #5a802e;
+}
+
+/* short break */
+.time-300 {
+  background-color: #f1b84e;
+}
