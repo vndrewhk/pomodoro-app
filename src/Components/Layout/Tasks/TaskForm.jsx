@@ -53,10 +53,14 @@ const TaskForm = () => {
     };
     let taskInfo = { taskValue, dateValue };
     // whenever this happens, we should manually add this into the tasks list state
+    // or rather, store all tasks within one store
     localStorage.setItem(
-      `task_${localStorage.length - 1}`,
+      `task_${localStorage.length}`,
       JSON.stringify(taskInfo)
     );
+    // preserve an order to maintain order, whenever the entire tasklist is cleared, set it to 0.
+
+    console.log(localStorage.length);
   };
 
   const [value, setValue] = React.useState(new Date());
