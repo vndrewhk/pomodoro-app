@@ -42,6 +42,14 @@ const TaskForm = () => {
 
   const submitFormHandler = () => {
     //store into local storage
+    let orderVal = 0;
+    if (localStorage.getItem("orderMax")) {
+      console.log("setting ot true value");
+      orderVal = parseInt(localStorage.getItem("orderMax")) + 1;
+    } else {
+      console.log("setting to 1");
+      orderVal = 1;
+    }
     console.log("Adding task...");
     // add task_id to each task so we can iterate
     let dateValue = {
@@ -51,13 +59,14 @@ const TaskForm = () => {
         minute: "2-digit",
       }),
     };
-    let taskInfo = { taskValue, dateValue };
+    let taskInfo = { taskValue, dateValue, order: orderVal };
     // whenever this happens, we should manually add this into the tasks list state
     // or rather, store all tasks within one store
     localStorage.setItem(
       `task_${localStorage.length}`,
       JSON.stringify(taskInfo)
     );
+    localStorage.setItem("orderMax", orderVal);
     // preserve an order to maintain order, whenever the entire tasklist is cleared, set it to 0.
 
     console.log(localStorage.length);
