@@ -1,50 +1,56 @@
+import { Checkbox } from "@mui/material";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { taskActions } from "../../../store/task-slice";
 import IndividualTask from "./IndividualTask";
 import styles from "./Table.module.css";
 
 const TaskTable = (props) => {
-  let DUMMY_TASKS = { id: "p1", task: "Eat Dinner", time: "5:00pm" };
-  const [tasks, setTasks] = useState({});
-  const deleteTaskHandler = (id) => {
-    console.log("task deleted");
-    console.log(id);
-    console.log(DUMMY_TASKS);
-    delete DUMMY_TASKS["id"];
-    console.log(DUMMY_TASKS.id);
+  let DUMMY_TASKS = { order: 1, task: "Eat Dinner", time: "5:00pm" };
+  // const [tasks, setTasks] = useState({});
+  const taskStore = useSelector((state) => state.tasks);
 
-    //filter state probably best solution
-    //deleting could also work but would have to set up a temp object
-    //so that it doesnt mutate the original state
+  const dispatch = useDispatch();
+
+  const deleteTaskHandler = (order) => {
+    console.log(order + " task deleted");
+    dispatch(taskActions.deleteTasks(order));
+  };
+  const retrieveTaskHandler = () => {
+    Object.keys(localStorage).forEach(function (key) {
+      // keep in mind, orderMax is in here.
+      if (typeof JSON.parse(localStorage.getItem(key)) === "object") {
+        dispatch(taskActions.addTasks(JSON.parse(localStorage.getItem(key))));
+      }
+
+      // console.log(JSON.parse(localStorage.getItem(key)));
+      // take this val, sort it, then store it in state
+    });
   };
 
   useEffect(() => {
-    console.log("adding event listener");
-    window.addEventListener("storage", () => {
-      console.log("checking storage");
-      Object.keys(localStorage).forEach(function (key) {
-        console.log(key);
-        console.log(localStorage.getItem(key));
-        // take this val, sort it, then store it in state
-      });
-    });
+    retrieveTaskHandler();
   }, []);
 
-  useEffect(() => {
-    Object.keys(localStorage).forEach(function (key) {
-      console.log(key);
-      console.log(localStorage.getItem(key));
-      // take this val, sort it, then store it in state
-    });
-  }, []);
+  const checkVals = () => {
+    console.log(taskStore.tasks);
+  };
+
+  const mappedTasks = taskStore.tasks.map((task) => (
+    <div key={task.order}>
+      <IndividualTask
+        taskInfo={task}
+        deleteTaskHandler={deleteTaskHandler}
+      ></IndividualTask>
+    </div>
+  ));
 
   return (
     <div className={styles.tableContainer}>
+      {/* <button onClick={checkVals}>Check Vals</button> */}
       <p>Task Table</p>
-      {/* map over tasks to generate individualtask with binded delete id */}
-      <IndividualTask
-        taskInfo={DUMMY_TASKS}
-        deleteTaskHandler={deleteTaskHandler.bind(null, "p1")}
-      ></IndividualTask>
+
+      {mappedTasks}
     </div>
   );
 };

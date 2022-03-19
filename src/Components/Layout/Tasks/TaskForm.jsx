@@ -8,6 +8,8 @@ import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DateTimePicker from "@mui/lab/DateTimePicker";
 import TimerButton from "../../UI/TimerButton";
 import { withStyles } from "@mui/styles";
+import { useSelector, useDispatch } from "react-redux";
+import { taskActions } from "../../../store/task-slice";
 
 const TaskForm = () => {
   const taskInput = useRef(null);
@@ -20,6 +22,10 @@ const TaskForm = () => {
   const taskChangeHandler = () => {
     setTaskValue(taskInput.current.value);
   };
+
+  const taskStore = useSelector((state) => state.tasks);
+
+  const dispatch = useDispatch();
 
   const logInfo = () => {
     console.log(taskValue);
@@ -70,6 +76,8 @@ const TaskForm = () => {
     // preserve an order to maintain order, whenever the entire tasklist is cleared, set it to 0.
 
     console.log(localStorage.length);
+
+    dispatch(taskActions.addTasks(taskInfo));
   };
 
   const [value, setValue] = React.useState(new Date());

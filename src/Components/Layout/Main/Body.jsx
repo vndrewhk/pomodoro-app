@@ -14,13 +14,21 @@ const Body = () => {
   //switch case from redux
   const timerMode = useSelector((state) => state.mode);
   const reduxTimerValue = timerMode.mode;
-  console.log(timerMode.mode);
+  // console.log(timerMode.mode);
   const [timerValue, setTimerValue] = useState(timerMode.mode);
+
+  const taskStore = useSelector((state) => state.tasks);
+  // console.log(taskStore.tasks);
 
   useEffect(() => {
     setTimerValue(reduxTimerValue);
-    console.log(reduxTimerValue);
+    // console.log(reduxTimerValue);
   }, [reduxTimerValue]);
+
+  const checkValues = () => {
+    console.log(timerMode.mode);
+    console.log(taskStore.tasks);
+  };
 
   return (
     <>
@@ -31,6 +39,7 @@ const Body = () => {
         <Timer key={timerValue} timerValue={timerValue}></Timer>
         <Tasks></Tasks>
       </div>
+      <button onClick={checkValues}>Check Values</button>
     </>
   );
 };
