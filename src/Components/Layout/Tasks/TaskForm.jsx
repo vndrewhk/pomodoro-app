@@ -12,9 +12,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { taskActions } from "../../../store/task-slice";
 
 const TaskForm = () => {
-  const taskInput = useRef(null);
-  const timeInput = useRef(null);
-  const dateInput = useRef(null);
+  let taskInput = useRef(null);
+  let timeInput = useRef(null);
+  let dateInput = useRef(null);
 
   const [formToggle, setFormToggle] = useState(false);
   const [taskValue, setTaskValue] = useState("");
@@ -46,8 +46,9 @@ const TaskForm = () => {
     console.log("Cancelling task");
   };
 
-  const submitFormHandler = () => {
+  const submitFormHandler = (e) => {
     //store into local storage
+    e.preventDefault();
     let orderVal = 0;
     if (localStorage.getItem("orderMax")) {
       console.log("setting ot true value");
@@ -68,16 +69,15 @@ const TaskForm = () => {
     let taskInfo = { taskValue, dateValue, order: orderVal };
     // whenever this happens, we should manually add this into the tasks list state
     // or rather, store all tasks within one store
-    localStorage.setItem(
-      `${orderVal}`,
-      JSON.stringify(taskInfo)
-    );
+    localStorage.setItem(`${orderVal}`, JSON.stringify(taskInfo));
     localStorage.setItem("orderMax", orderVal);
     // preserve an order to maintain order, whenever the entire tasklist is cleared, set it to 0.
 
     console.log(localStorage.length);
 
     dispatch(taskActions.addTasks(taskInfo));
+
+    setTaskValue("");
   };
 
   const [value, setValue] = React.useState(new Date());
@@ -86,7 +86,7 @@ const TaskForm = () => {
       <h4 onClick={toggleFormHandler}>Task Form</h4>
       {/* <TextField */}
       {formToggle && (
-        <div className={styles.inputContainer}>
+        <form className={styles.inputContainer}>
           <div className={styles.inputForm}>
             <TextField
               id="task name"
@@ -98,6 +98,7 @@ const TaskForm = () => {
               sx={{
                 minWidth: 6 / 10,
               }}
+              value={taskValue}
             />
             <LocalizationProvider dateAdapter={AdapterDateFns}>
               <DateTimePicker
@@ -115,12 +116,16 @@ const TaskForm = () => {
               <TimerButton variant="contained" onClick={toggleFormHandler}>
                 Cancel
               </TimerButton>
-              <TimerButton variant="contained" onClick={submitFormHandler}>
+              <TimerButton
+                variant="contained"
+                type="submit"
+                onClick={submitFormHandler}
+              >
                 Save
               </TimerButton>
             </div>
           </div>
-        </div>
+        </form>
       )}
 
       <button onClick={logInfo}>check</button>
