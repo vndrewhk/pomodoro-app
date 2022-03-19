@@ -1,4 +1,6 @@
 import { Checkbox } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import styles from "./IndividualTask.module.css";
 
 const IndividualTask = (props) => {
   const deleteTaskHandler = props.deleteTaskHandler.bind(
@@ -9,10 +11,15 @@ const IndividualTask = (props) => {
   // console.log(props.taskInfo);
 
   return (
-    <div>
+    <div className={styles.task}>
       {props.taskInfo.taskValue} - {props.taskInfo.dateValue.time},
       {props.taskInfo.dateValue.date}
-      <Checkbox onClick={deleteTaskHandler}></Checkbox>
+      {props.taskInfo && (
+        <Checkbox
+          onClick={deleteTaskHandler}
+          className={styles.checkBox}
+        ></Checkbox>
+      )}
     </div>
   );
 };

@@ -1,4 +1,5 @@
-import { Checkbox } from "@mui/material";
+import { Checkbox, CircularProgress } from "@mui/material";
+
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { taskActions } from "../../../store/task-slice";
@@ -14,6 +15,7 @@ const TaskTable = (props) => {
 
   const deleteTaskHandler = (order) => {
     console.log(order + " task deleted");
+    localStorage.removeItem(order);
     dispatch(taskActions.deleteTasks(order));
   };
   const retrieveTaskHandler = () => {
@@ -37,12 +39,12 @@ const TaskTable = (props) => {
   };
 
   const mappedTasks = taskStore.tasks.map((task) => (
-    <div key={task.order}>
-      <IndividualTask
-        taskInfo={task}
-        deleteTaskHandler={deleteTaskHandler}
-      ></IndividualTask>
-    </div>
+    // <div key={task.order}>
+    <IndividualTask
+      taskInfo={task}
+      deleteTaskHandler={deleteTaskHandler}
+    ></IndividualTask>
+    // </div>
   ));
 
   return (
@@ -50,7 +52,15 @@ const TaskTable = (props) => {
       {/* <button onClick={checkVals}>Check Vals</button> */}
       <p>Task Table</p>
 
-      {mappedTasks}
+      <div className={styles.taskList}>
+        {/* add a line that says no tasks or loading */}
+        {mappedTasks.length > 0 ? (
+          <>{mappedTasks}</>
+        ) : (
+          <h5>No tasks yet! Maybe try adding some?</h5>
+          // <CircularProgress></CircularProgress>
+        )}
+      </div>
     </div>
   );
 };
