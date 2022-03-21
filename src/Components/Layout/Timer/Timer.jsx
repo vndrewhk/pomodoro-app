@@ -7,6 +7,7 @@ import SkipNextIcon from "@mui/icons-material/SkipNext";
 import alarmAudio from "../../../assets/sounds/AlarmClock.mp3";
 import ReplayIcon from "@mui/icons-material/Replay";
 import TimerButton from "../../UI/TimerButton";
+import { useSelector } from "react-redux";
 //if pomodoro count % 5 -> long break
 //after each pomodoro -> short break
 //set redux to appropriate value, change display message based on redux?
@@ -15,6 +16,12 @@ const Timer = (props) => {
   let [isActive, setIsActive] = useState(false);
   let [audio, setAudio] = useState(new Audio(alarmAudio));
   //placeholder, will use local storage to count these later
+
+  const timerMode = useSelector((state) => state.mode);
+  const reduxTimerValue = `time-${timerMode.mode.toString()}`;
+
+  const appClasses = `${styles.timerContainer} ${styles[reduxTimerValue]}`;
+
   let [pomodoroCounter, setPomodoroCounter] = useState(0);
   let [displayMessage, setDisplayMessage] = useState(
     "Ready to get productive?"
@@ -68,7 +75,7 @@ const Timer = (props) => {
 
   return (
     // <LocalizationProvider dateAdapter={AdapterDateFns}>
-    <div className={styles.timerContainer}>
+    <div className={appClasses}>
       <div className={styles.timer}>
         <h1>Timer</h1>
 

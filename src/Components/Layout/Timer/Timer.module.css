@@ -2,10 +2,13 @@
   width: 60%;
   display: flex;
   flex-direction: column;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   /* justify-content: center; */
   align-items: center;
   color: white;
+  border-radius: 50px;
+
+  padding: 50px;
 }
 
 .timer {
@@ -20,4 +23,19 @@
 
 .timerButtons {
   /* border: 2px solid yellow; */
+}
+
+.time-1500 {
+  /* pomodoro */
+  background-color: #30497c;
+}
+
+.time-600 {
+  /* long break */
+  background-color: #528a11;
+}
+
+.time-300 {
+  /* short break */
+  background-color: #eca51f;
 }
