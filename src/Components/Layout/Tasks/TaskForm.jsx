@@ -83,8 +83,10 @@ const TaskForm = () => {
   const [value, setValue] = React.useState(new Date());
   return (
     <div className={styles.taskForm}>
-      <h4 onClick={toggleFormHandler}>Task Form</h4>
-      {/* <TextField */}
+      <div onClick={toggleFormHandler} className={styles.taskForm}>
+        <h4>Task Form</h4>
+        {/* <TextField */}
+      </div>
       {formToggle && (
         <form className={styles.inputContainer}>
           <div className={styles.inputForm}>
@@ -127,7 +129,6 @@ const TaskForm = () => {
           </div>
         </form>
       )}
-
       <button onClick={logInfo}>check</button>
     </div>
   );

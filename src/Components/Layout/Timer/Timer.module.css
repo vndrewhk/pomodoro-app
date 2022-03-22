@@ -12,7 +12,7 @@
 }
 
 .timer {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   display: flex;
   flex-direction: column;
   width: 60%;
@@ -28,14 +28,17 @@
 .time-1500 {
   /* pomodoro */
   background-color: #30497c;
+  border: 2px solid #032872;
 }
 
 .time-600 {
   /* long break */
   background-color: #528a11;
+  border: 2px solid #3d6d06;
 }
 
 .time-300 {
   /* short break */
   background-color: #eca51f;
+  border: 2px solid #aa730c;
 }

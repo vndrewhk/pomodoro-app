@@ -1,5 +1,5 @@
 .taskForm {
-  border: 2px solid white;
+  /* border: 2px solid white; */
   display: flex;
   flex-direction: column;
   justify-content: center;
