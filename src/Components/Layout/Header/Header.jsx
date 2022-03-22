@@ -5,6 +5,7 @@ import HeaderButton from "../../UI/HeaderButton";
 import styles from "./Header.module.css";
 import "@fontsource/pangolin";
 import SettingsIcon from "@mui/icons-material/Settings";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -19,8 +20,13 @@ const Header = () => {
     console.log("Logged out!");
   };
 
+  const timerMode = useSelector((state) => state.mode);
+  const reduxTimerValue = `time-${timerMode.mode.toString()}`;
+
+  const appClasses = `${styles.header} ${styles[reduxTimerValue]}`;
+
   return (
-    <div className={styles.header}>
+    <div className={appClasses}>
       <div className={styles.headerContainer}>
         <h1 className={styles.title}>Pomodoreact</h1>
         {/* <Typography variant="h1">Pomodoreact</Typography> */}

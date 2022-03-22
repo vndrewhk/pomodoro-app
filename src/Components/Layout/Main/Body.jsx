@@ -39,7 +39,7 @@ const Body = () => {
         <Timer key={timerValue} timerValue={timerValue}></Timer>
         <Tasks></Tasks>
       </div>
-      <button onClick={checkValues}>Check Values</button>
+      {/* <button onClick={checkValues}>Check Values</button> */}
     </>
   );
 };
