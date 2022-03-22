@@ -1,21 +1,35 @@
 .App {
   /* background-color: #282c34; */
   /* background-color: #3b507a; */
-  height: 150vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  /* height: 100%; */
   /* text-align: center; */
 }
 
 /* pomodoro */
 .time-1500 {
-  background-color: #3b507a;
+  /* background-color: #3b507a; */
+  background-color: #d4423d;
+  -webkit-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
 }
 
 /* long break */
 .time-600 {
-  background-color: #5a802e;
+  background-color: #719745;
+  -webkit-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
 }
 
 /* short break */
 .time-300 {
-  background-color: #f1b84e;
+  background-color: #f7b948;
+  -webkit-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
 }

@@ -9,6 +9,7 @@
 .selectorBox {
   display: flex;
   justify-content: center;
+  /* align-items: center; */
   padding: 0;
   margin: 0;
 }
@@ -22,4 +23,11 @@
   margin-bottom: 2em;
   width: 510px;
   justify-content: space-between;
+}
+
+.sub-body {
+  margin-top: 5rem;
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }

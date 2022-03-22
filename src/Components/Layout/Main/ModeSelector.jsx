@@ -16,9 +16,10 @@ const ModeSelector = () => {
     <div className={styles.pomodoroSelector}>
       <TypeButton
         variant="contained"
-        // sx={{
-        //     bgcolor: '#30497c',
-        //   }}
+        sx={{
+          // #861d1a <-- this for clicked?
+            bgcolor: '#9c231f',
+          }}
         onClick={modeSelectHandler.bind(null, 1500)}
       >
         Pomodoro
