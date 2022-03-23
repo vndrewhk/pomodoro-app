@@ -6,6 +6,9 @@
   color: beige;
   height: 5em;
   /* background-color: #282c34; */
+  -webkit-transition: background-color 750ms linear;
+  -ms-transition: background-color 750ms linear;
+  transition: background-color 750ms linear;
 }
 
 .headerContainer {
@@ -42,26 +45,26 @@
   /* pomodoro */
   /* background-color: #30497c; */
   background-color: #9c231f;
-  -webkit-transition: background-color 1000ms linear;
-  -ms-transition: background-color 1000ms linear;
-  transition: background-color 1000ms linear;
+  /* -webkit-transition: background-color 750ms linear;
+  -ms-transition: background-color 750ms linear;
+  transition: background-color 750ms linear; */
 
 }
 
 .time-600 {
   /* long break */
   background-color: #528a11;
-  -webkit-transition: background-color 1000ms linear;
-  -ms-transition: background-color 1000ms linear;
-  transition: background-color 1000ms linear;
+  /* -webkit-transition: background-color 750ms linear;
+  -ms-transition: background-color 750ms linear;
+  transition: background-color 750ms linear; */
 
 }
 
 .time-300 {
   /* short break */
   background-color: #eca51f;
-  -webkit-transition: background-color 1000ms linear;
-  -ms-transition: background-color 1000ms linear;
-  transition: background-color 1000ms linear;
+  /* -webkit-transition: background-color 750ms linear;
+  -ms-transition: background-color 750ms linear;
+  transition: background-color 750ms linear; */
 
 }

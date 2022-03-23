@@ -129,7 +129,7 @@ const TaskForm = () => {
           </div>
         </form>
       )}
-      <button onClick={logInfo}>check</button>
+      {/* <button onClick={logInfo}>check</button> */}
     </div>
   );
 };

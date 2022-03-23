@@ -122,7 +122,7 @@ const Timer = (props) => {
         <h2>Pomodoros: {pomodoroCounter}</h2>
       </div>
 
-      <button onClick={compareVal}>check</button>
+      {/* <button onClick={compareVal}>check</button> */}
     </div>
 
     // </LocalizationProvider>

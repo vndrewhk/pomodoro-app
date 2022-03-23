@@ -8,6 +8,7 @@ const modeSlice = createSlice({
   reducers: {
     selectMode(state, action) {
       state.mode = action.payload;
+      
       console.log(action.payload);
     },
   },

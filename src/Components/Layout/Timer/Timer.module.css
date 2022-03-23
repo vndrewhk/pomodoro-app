@@ -2,16 +2,21 @@
   width: 60%;
   display: flex;
   flex-direction: column;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(0, 0, 0, 0.15);
   /* border: 2px solid red; */
   /* justify-content: center; */
   align-items: center;
-  color: white;
-  border-radius: 50px;
-  margin-right: 50px;
+  color: white; 
+  border-radius: 50px;  
+  margin-right: 50px; 
   /* padding: 50px; */
   padding-top: 50px;
   padding-bottom: 50px;
   /* min-height: 80vh; */
+  -webkit-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
 }
 
 .timer {
@@ -32,29 +37,29 @@
   /* pomodoro */
   /* background-color: #30497c; */
   /* background-color: #9c231f; */
-  background-color: #d45e5a;
+  /* background-color: #d45e5a; */
   border: 2px solid #c73e39;;
-  -webkit-transition: background-color 500ms linear;
+  /* -webkit-transition: background-color 500ms linear;
   -ms-transition: background-color 500ms linear;
-  transition: background-color 500ms linear;
+  transition: background-color 500ms linear; */
 }
 
 .time-600 {
   /* long break */
   /* background-color: #528a11; */
-  background-color: #91bb61;
+  /* background-color: #91bb61; */
   border: 2px solid #3d6d06;
-  -webkit-transition: background-color 500ms linear;
+  /* -webkit-transition: background-color 500ms linear;
   -ms-transition: background-color 500ms linear;
-  transition: background-color 500ms linear;
+  transition: background-color 500ms linear; */
 }
 
 .time-300 {
   /* short break */
   /* background-color: #eca51f; */
-  background-color: #f0ba55;
+  /* background-color: #f0ba55; */
   border: 2px solid #aa730c;
-  -webkit-transition: background-color 500ms linear;
+  /* -webkit-transition: background-color 500ms linear;
   -ms-transition: background-color 500ms linear;
-  transition: background-color 500ms linear;
+  transition: background-color 500ms linear; */
 }

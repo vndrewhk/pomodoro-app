@@ -3,10 +3,25 @@
   /* justify-content: center; */
   flex-direction: column;
   align-items: center;
+  /* border: 2px solid black; */
 }
 .description {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 30%;
+  width: 33%;
+  border: 2px solid white;
+  padding: 2rem;
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  border-bottom: rgba(255, 255, 255, 0.5) 2px solid;
+  /* justify-content: center; */
 }

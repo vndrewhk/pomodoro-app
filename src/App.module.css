@@ -1,11 +1,12 @@
 .App {
   /* background-color: #282c34; */
   /* background-color: #3b507a; */
-  height: 100vh;
+  height: 200vh;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   /* height: 100%; */
+
   /* text-align: center; */
 }
 
