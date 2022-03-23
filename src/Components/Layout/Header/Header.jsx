@@ -30,15 +30,8 @@ const Header = () => {
       <div className={styles.headerContainer}>
         <h1 className={styles.title}>Pomodoreact</h1>
         {/* <Typography variant="h1">Pomodoreact</Typography> */}
-        <div className={styles.headerLinks}>
-          {/* <HeaderButton variant="contained" disableElevation>
-            Home
-          </HeaderButton> */}
-          <HeaderButton
-            variant="contained"
-            disableElevation
-            // endIcon={<SettingsIcon></SettingsIcon>}
-          >
+        {/* <div className={styles.headerLinks}>
+          <HeaderButton variant="contained" disableElevation>
             Settings
           </HeaderButton>
           <div>
@@ -47,7 +40,6 @@ const Header = () => {
                 onClick={logoutHandler}
                 variant="contained"
                 disableElevation
-                // startIcon={}
               >
                 Logout
               </HeaderButton>
@@ -61,7 +53,7 @@ const Header = () => {
               </HeaderButton>
             )}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -97,7 +97,7 @@ const FlavourText = () => {
                 Tasks stored persists through sessions to start where you left
                 off
               </li>
-              <li>Customizable timers to match every user's needs</li>
+              {/* <li>Customizable timers to match every user's needs</li> */}
             </ul>
           </Typography>
         </div>

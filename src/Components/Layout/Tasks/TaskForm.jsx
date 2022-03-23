@@ -10,6 +10,8 @@ import TimerButton from "../../UI/TimerButton";
 import { withStyles } from "@mui/styles";
 import { useSelector, useDispatch } from "react-redux";
 import { taskActions } from "../../../store/task-slice";
+import { Button } from "@mui/material";
+import TaskButton from "../../UI/TaskButton";
 
 const TaskForm = () => {
   let taskInput = useRef(null);
@@ -83,10 +85,11 @@ const TaskForm = () => {
   const [value, setValue] = React.useState(new Date());
   return (
     <div className={styles.taskForm}>
-      <div onClick={toggleFormHandler} className={styles.taskForm}>
-        <h4>Task Form</h4>
-        {/* <TextField */}
-      </div>
+      {!formToggle && (
+        <div onClick={toggleFormHandler} className={styles.taskForm}>
+          <TaskButton>Create Task</TaskButton>
+        </div>
+      )}
       {formToggle && (
         <form className={styles.inputContainer}>
           <div className={styles.inputForm}>
