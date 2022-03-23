@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import FlavourText from "../FlavourText/FlavourText";
 
+
 // change color based off mode
 // change color when timer starts/stops
 // transition into color gradually
@@ -37,7 +38,8 @@ const Body = () => {
         <ModeSelector></ModeSelector>
       </div>
       <div className={styles.body}>
-        <Timer key={timerValue} timerValue={timerValue}></Timer>
+        <Timer timerValue={timerValue}></Timer>
+    
         <Tasks></Tasks>
       </div>
       <div className={styles["sub-body"]}>

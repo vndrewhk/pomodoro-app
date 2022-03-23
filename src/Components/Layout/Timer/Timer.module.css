@@ -34,9 +34,9 @@
   /* background-color: #9c231f; */
   background-color: #d45e5a;
   border: 2px solid #c73e39;;
-  -webkit-transition: background-color 1000ms linear;
-  -ms-transition: background-color 1000ms linear;
-  transition: background-color 1000ms linear;
+  -webkit-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
 }
 
 .time-600 {
@@ -44,9 +44,9 @@
   /* background-color: #528a11; */
   background-color: #91bb61;
   border: 2px solid #3d6d06;
-  -webkit-transition: background-color 1000ms linear;
-  -ms-transition: background-color 1000ms linear;
-  transition: background-color 1000ms linear;
+  -webkit-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
 }
 
 .time-300 {
@@ -54,7 +54,7 @@
   /* background-color: #eca51f; */
   background-color: #f0ba55;
   border: 2px solid #aa730c;
-  -webkit-transition: background-color 1000ms linear;
-  -ms-transition: background-color 1000ms linear;
-  transition: background-color 1000ms linear;
+  -webkit-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
 }

@@ -71,8 +71,14 @@ const Timer = (props) => {
     }
   });
 
-  // const theme = createTheme({});
+  useEffect(() => {
+    setTimerValue(timerMode.mode);
+  }, [timerMode]);
 
+  const compareVal = () => {
+    console.log(props.timerValue);
+    console.log(timerMode.mode);
+  };
   return (
     // <LocalizationProvider dateAdapter={AdapterDateFns}>
     <div className={appClasses}>
@@ -116,7 +122,7 @@ const Timer = (props) => {
         <h2>Pomodoros: {pomodoroCounter}</h2>
       </div>
 
-      {/* <button onClick={checkTimer}>check</button> */}
+      <button onClick={compareVal}>check</button>
     </div>
 
     // </LocalizationProvider>
