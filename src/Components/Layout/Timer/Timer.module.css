@@ -30,14 +30,21 @@
 
   background-color: rgba(255, 255, 255, 0.5);
   /* margin-top: 1rem; */
-  padding-bottom: 1.5rem;
+  padding-bottom: 5rem;
   border-radius: 50px;
+
+  margin-bottom: 1rem;
   /* padding-left: 1.5rem;
   padding-right: 1.5rem; */
 }
 
 .timerButtons {
   /* border: 2px solid yellow; */
+}
+
+.skipButton {
+  position: relative;
+  /* top: 42%; */
 }
 
 .time-1500 {
@@ -72,6 +79,15 @@
 }
 
 .pomodoroMessage {
+  /* background-color: rgba(0, 0, 0, 0.2); */
+  border-top: 2px solid rgba(0, 0, 0, 0.2);
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* padding-top: ; */
+
   /* background-color: rgba(255, 255, 255, 0.5);
   margin-top: 1rem;
   border-radius: 50px;

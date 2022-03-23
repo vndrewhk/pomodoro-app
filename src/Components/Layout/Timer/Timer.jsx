@@ -119,11 +119,14 @@ const Timer = (props) => {
             </>
             {/* need to style this so it's separate and doesnt push other buttons */}
           </div>
-          {(isActive || timerValue < props.timerValue) && (
+          {/* {(isActive || timerValue < props.timerValue) && (
             <Button onClick={skipTimer}>
               <SkipNextIcon></SkipNextIcon>
             </Button>
-          )}
+          )} */}
+          <Button onClick={skipTimer}>
+            <SkipNextIcon></SkipNextIcon>
+          </Button>
         </>
       </div>
       <div className={styles.pomodoroMessage}>
