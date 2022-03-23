@@ -50,7 +50,7 @@ const TaskTable = (props) => {
   return (
     <div className={styles.tableContainer}>
       {/* <button onClick={checkVals}>Check Vals</button> */}
-      <p>Task Table</p>
+      {/* <p>Task Table</p> */}
 
       <div className={styles.taskList}>
         {/* add a line that says no tasks or loading */}

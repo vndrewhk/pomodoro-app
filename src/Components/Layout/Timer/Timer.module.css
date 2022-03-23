@@ -7,9 +7,9 @@
   /* border: 2px solid red; */
   /* justify-content: center; */
   align-items: center;
-  color: white; 
-  border-radius: 50px;  
-  margin-right: 50px; 
+  color: white;
+  border-radius: 50px;
+  margin-right: 50px;
   /* padding: 50px; */
   padding-top: 50px;
   padding-bottom: 50px;
@@ -27,6 +27,13 @@
   /* border: 2px solid red; */
   /* justify-content: center; */
   align-items: center;
+
+  background-color: rgba(255, 255, 255, 0.5);
+  /* margin-top: 1rem; */
+  padding-bottom: 1.5rem;
+  border-radius: 50px;
+  /* padding-left: 1.5rem;
+  padding-right: 1.5rem; */
 }
 
 .timerButtons {
@@ -38,7 +45,7 @@
   /* background-color: #30497c; */
   /* background-color: #9c231f; */
   /* background-color: #d45e5a; */
-  border: 2px solid #c73e39;;
+  border: 2px solid #c73e39;
   /* -webkit-transition: background-color 500ms linear;
   -ms-transition: background-color 500ms linear;
   transition: background-color 500ms linear; */
@@ -62,4 +69,12 @@
   /* -webkit-transition: background-color 500ms linear;
   -ms-transition: background-color 500ms linear;
   transition: background-color 500ms linear; */
+}
+
+.pomodoroMessage {
+  /* background-color: rgba(255, 255, 255, 0.5);
+  margin-top: 1rem;
+  border-radius: 50px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem; */
 }

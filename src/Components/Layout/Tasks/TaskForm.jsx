@@ -102,13 +102,22 @@ const TaskForm = () => {
               onChange={taskChangeHandler}
               sx={{
                 minWidth: 6 / 10,
+                input: { color: "white" },
+                label: { color: "white" },
               }}
               value={taskValue}
             />
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <LocalizationProvider
+      
+              dateAdapter={AdapterDateFns}
+            >
               <DateTimePicker
-                renderInput={(props) => <TextField {...props} />}
-                label="DateTimePicker"
+           
+                renderInput={(props) => <TextField         sx={{
+                  input: { color: "white" },
+                  label: { color: "white" },
+                }}{...props} />}
+                label="Due Date"
                 value={value}
                 onChange={(newValue) => {
                   setValue(newValue);

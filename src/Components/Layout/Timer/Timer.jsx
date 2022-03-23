@@ -52,11 +52,20 @@ const Timer = (props) => {
     setIsActive(false);
   };
 
+  const skipTimer = () => {
+    setIsActive(false);
+    setTimerValue(props.timerValue);
+    setPomodoroCounter((prevState) => prevState + 1);
+    if (pomodoroCounter === 3) {
+      setDisplayMessage("Time for a break!");
+    }
+  };
+
   useEffect(() => {
     if (timerValue === 0 && isActive) {
       setIsActive(false);
       audio.play();
-      if (pomodoroCounter === 4) {
+      if (pomodoroCounter === 3) {
         setDisplayMessage("Time for a break!");
       }
       setPomodoroCounter((prevState) => prevState + 1);
@@ -111,7 +120,7 @@ const Timer = (props) => {
             {/* need to style this so it's separate and doesnt push other buttons */}
           </div>
           {(isActive || timerValue < props.timerValue) && (
-            <Button>
+            <Button onClick={skipTimer}>
               <SkipNextIcon></SkipNextIcon>
             </Button>
           )}
