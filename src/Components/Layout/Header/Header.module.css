@@ -1,8 +1,8 @@
 .header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   color: beige;
   height: 5em;
   /* background-color: #282c34; */
@@ -18,7 +18,7 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  /* width: 40%; */
+  width: 50%;
   height: 100%;
 }
 

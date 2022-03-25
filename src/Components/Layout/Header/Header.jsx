@@ -1,29 +1,24 @@
-// import { Button, Typography } from "@mui/material";
-// import { style } from "@mui/system";
-// import { useState } from "react";
-// import HeaderButton from "../../UI/HeaderButton";
 import styles from "./Header.module.css";
 import "@fontsource/pangolin";
-// import SettingsIcon from "@mui/icons-material/Settings";
-import { useSelector } from "react-redux";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import { useDispatch, useSelector } from "react-redux";
+import { FormControl, FormControlLabel, Switch } from "@mui/material";
+import { modeActions } from "../../../store/mode-slice";
 
 const Header = () => {
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // const loginHandler = () => {
-  //   setIsLoggedIn(true);
-  //   console.log("Logging in...");
-  // };
-
-  // const logoutHandler = () => {
-  //   setIsLoggedIn(false);
-  //   console.log("Logged out!");
-  // };
-
   const timerMode = useSelector((state) => state.mode);
-  const reduxTimerValue = `time-${timerMode.mode.toString()}`;
+  let reduxTimerValue = `time-${timerMode.mode.toString()}`;
+  !timerMode.night
+    ? (reduxTimerValue = `time-${timerMode.mode.toString()}`)
+    : (reduxTimerValue = `time-${timerMode.mode.toString()}`);
 
   const appClasses = `${styles.header} ${styles[reduxTimerValue]}`;
+
+  const dispatch = useDispatch();
+
+  const toggleNightHandler = () => {
+    dispatch(modeActions.toggleNight());
+  };
 
   return (
     <div className={appClasses}>
@@ -31,32 +26,11 @@ const Header = () => {
         <h1 className={styles.title} onClick={console.log("lol")}>
           Pomodoreact
         </h1>
-        {/* <Typography variant="h1">Pomodoreact</Typography> */}
-        {/* <div className={styles.headerLinks}>
-          <HeaderButton variant="contained" disableElevation>
-            Settings
-          </HeaderButton>
-          <div>
-            {isLoggedIn ? (
-              <HeaderButton
-                onClick={logoutHandler}
-                variant="contained"
-                disableElevation
-              >
-                Logout
-              </HeaderButton>
-            ) : (
-              <HeaderButton
-                onClick={loginHandler}
-                variant="contained"
-                disableElevation
-              >
-                Login
-              </HeaderButton>
-            )}
-          </div>
-        </div> */}
       </div>
+      <FormControlLabel
+        control={<Switch onClick={toggleNightHandler} />}
+        label={<DarkModeIcon></DarkModeIcon>}
+      />
     </div>
   );
 };

@@ -22,6 +22,7 @@
 /* long break */
 .time-600 {
   background-color: #719745;
+
   -webkit-transition: background-color 500ms linear;
   -ms-transition: background-color 500ms linear;
   transition: background-color 500ms linear;
@@ -30,6 +31,29 @@
 /* short break */
 .time-300 {
   background-color: #f7b948;
+  -webkit-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
+}
+
+.night-1500 {
+  /* background-color: #3b507a; */
+  background-color: #350606;
+  -webkit-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
+}
+
+.night-600 {
+  background-color: #1b3000;
+  -webkit-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
+}
+
+/* short break */
+.night-300 {
+  background-color: #503401;
   -webkit-transition: background-color 500ms linear;
   -ms-transition: background-color 500ms linear;
   transition: background-color 500ms linear;

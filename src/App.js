@@ -6,9 +6,14 @@ import styles from "./App.module.css";
 import { useSelector } from "react-redux";
 function App() {
   const timerMode = useSelector((state) => state.mode);
-  const reduxTimerValue = `time-${timerMode.mode.toString()}`;
+  let reduxTimerValue = `time-${timerMode.mode.toString()}`;
+  !timerMode.night
+    ? (reduxTimerValue = `time-${timerMode.mode.toString()}`)
+    : (reduxTimerValue = `night-${timerMode.mode.toString()}`);
   const appClasses = `${styles.App} ${styles[reduxTimerValue]}`;
   // console.log(appClasses);
+
+  // const nightTimerValue = `night-${timerMode.mode.toString()}`;
 
   return (
     <Router>

@@ -4,12 +4,16 @@ const modeSlice = createSlice({
   name: "mode",
   initialState: {
     mode: 1500,
+    night: false,
   },
   reducers: {
     selectMode(state, action) {
       state.mode = action.payload;
-      
+
       console.log(action.payload);
+    },
+    toggleNight(state) {
+      state.night = !state.night;
     },
   },
 });
