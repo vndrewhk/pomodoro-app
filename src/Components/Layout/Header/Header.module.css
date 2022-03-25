@@ -66,3 +66,18 @@
   -ms-transition: background-color 750ms linear;
   transition: background-color 750ms linear; */
 }
+
+.night-1500 {
+  /* pomodoro */
+  background-color: #740400;
+}
+
+.night-600 {
+  /* long break */
+  background-color: #315c00;
+}
+
+.night-300 {
+  /* short break */
+  background-color: #b37503;
+}

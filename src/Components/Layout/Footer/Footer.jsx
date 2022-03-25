@@ -5,14 +5,20 @@ import { Link } from "react-router-dom";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { LinkedIn, Twitter } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
-
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
 
 const Footer = () => {
-  const appClasses = `${styles.footer}`;
+  const timerMode = useSelector((state) => state.mode);
+  let reduxTimerValue;
+  // let reduxTimerValue = `time-${timerMode.mode.toString()}`;
+  !timerMode.night ? (reduxTimerValue = `time`) : (reduxTimerValue = `night`);
+
+  const appClasses = `${styles.footer} ${styles[reduxTimerValue]}`;
+
+  // const appClasses = `${styles.footer}`;
   return (
     <div className={appClasses}>
       <div className={styles.links}>

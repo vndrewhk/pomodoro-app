@@ -10,7 +10,7 @@ const Header = () => {
   let reduxTimerValue = `time-${timerMode.mode.toString()}`;
   !timerMode.night
     ? (reduxTimerValue = `time-${timerMode.mode.toString()}`)
-    : (reduxTimerValue = `time-${timerMode.mode.toString()}`);
+    : (reduxTimerValue = `night-${timerMode.mode.toString()}`);
 
   const appClasses = `${styles.header} ${styles[reduxTimerValue]}`;
 
