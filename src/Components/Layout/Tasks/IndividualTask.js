@@ -45,8 +45,10 @@ const IndividualTask = (props) => {
           className={styles.checkBox}
         ></Checkbox>
       )}
-      {props.taskInfo.taskValue} - {props.taskInfo.dateValue.time},
-      {props.taskInfo.dateValue.date}
+      <div className={styles.infoBox}>
+        <div>{props.taskInfo.taskValue}</div>
+        <div>{props.taskInfo.dateValue.date}</div>
+      </div>
     </div>
   );
 };
