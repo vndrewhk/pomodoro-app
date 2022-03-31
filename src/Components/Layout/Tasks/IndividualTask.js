@@ -8,6 +8,27 @@ const IndividualTask = (props) => {
     props.taskInfo.order
     // 3
   );
+
+  // const delayedTaskDelete = setTimeout(() => {
+  //   console.log("delayed delete");
+  //   deleteTaskHandler();
+  // }, 1000);
+
+  // const delayedTaskDelete = async () => {
+  //   console.log('start task')
+  //   await new Promise(resolve =>setTimeout(resolve))
+  // };
+
+  const delayedTaskDelete = () => {
+    return new Promise((resolve) => setTimeout(resolve, 500));
+  };
+
+  const deleteTask = () => {
+    delayedTaskDelete().then(() => {
+      deleteTaskHandler();
+    });
+  };
+
   const logInfoHandler = () => {
     console.log(props.taskInfo);
   };
@@ -17,15 +38,15 @@ const IndividualTask = (props) => {
 
   return (
     <div className={styles.task}>
-      {props.taskInfo.taskValue} - {props.taskInfo.dateValue.time},
-      {props.taskInfo.dateValue.date}
       {props.taskInfo && (
         <Checkbox
           key={props.taskInfo.order}
-          onClick={deleteTaskHandler}
+          onClick={deleteTask}
           className={styles.checkBox}
         ></Checkbox>
       )}
+      {props.taskInfo.taskValue} - {props.taskInfo.dateValue.time},
+      {props.taskInfo.dateValue.date}
     </div>
   );
 };
