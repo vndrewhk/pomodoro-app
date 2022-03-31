@@ -13,11 +13,12 @@ const IndividualTask = (props) => {
   };
   console.log(props.taskInfo);
 
+  // probably want to add an animation or delay, just in case
+
   return (
     <div className={styles.task}>
       {props.taskInfo.taskValue} - {props.taskInfo.dateValue.time},
       {props.taskInfo.dateValue.date}
-      {/* <button onClick={logInfoHandler}>here</button> */}
       {props.taskInfo && (
         <Checkbox
           key={props.taskInfo.order}
