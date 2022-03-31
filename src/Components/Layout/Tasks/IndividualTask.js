@@ -8,14 +8,19 @@ const IndividualTask = (props) => {
     props.taskInfo.order
     // 3
   );
-  // console.log(props.taskInfo);
+  const logInfoHandler = () => {
+    console.log(props.taskInfo);
+  };
+  console.log(props.taskInfo);
 
   return (
     <div className={styles.task}>
       {props.taskInfo.taskValue} - {props.taskInfo.dateValue.time},
       {props.taskInfo.dateValue.date}
+      {/* <button onClick={logInfoHandler}>here</button> */}
       {props.taskInfo && (
         <Checkbox
+          key={props.taskInfo.order}
           onClick={deleteTaskHandler}
           className={styles.checkBox}
         ></Checkbox>
