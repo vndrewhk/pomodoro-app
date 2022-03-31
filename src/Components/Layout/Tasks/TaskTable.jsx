@@ -41,6 +41,7 @@ const TaskTable = (props) => {
   const mappedTasks = taskStore.tasks.map((task) => (
     // <div key={task.order}>
     <IndividualTask
+      key={task.order}
       taskInfo={task}
       deleteTaskHandler={deleteTaskHandler}
     ></IndividualTask>
