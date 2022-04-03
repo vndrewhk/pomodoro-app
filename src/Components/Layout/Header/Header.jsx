@@ -4,6 +4,7 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { useDispatch, useSelector } from "react-redux";
 import { FormControl, FormControlLabel, Switch } from "@mui/material";
 import { modeActions } from "../../../store/mode-slice";
+import SettingsModal from "../../Modal/SettingsModal";
 
 const Header = () => {
   const timerMode = useSelector((state) => state.mode);
@@ -27,10 +28,13 @@ const Header = () => {
           Pomodoreact
         </h1>
       </div>
-      <FormControlLabel
-        control={<Switch onClick={toggleNightHandler} />}
-        label={<DarkModeIcon></DarkModeIcon>}
-      />
+      <div className={styles.buttonContainer}>
+        <SettingsModal></SettingsModal>
+        <FormControlLabel
+          control={<Switch onClick={toggleNightHandler} />}
+          label={<DarkModeIcon></DarkModeIcon>}
+        />
+      </div>
     </div>
   );
 };

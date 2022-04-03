@@ -67,6 +67,15 @@
   transition: background-color 750ms linear; */
 }
 
+.buttonContainer {
+  display: flex;
+  position: absolute;
+  /* border: 2px solid black; */
+  width: 12.5%;
+  justify-content: space-between;
+  padding-left: 1%;
+}
+
 .night-1500 {
   /* pomodoro */
   background-color: #740400;

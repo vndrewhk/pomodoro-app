@@ -3,7 +3,7 @@ import { Button } from "@mui/material";
 import "@fontsource/pangolin";
 
 const HeaderButton = styled(Button)(({ theme }) => ({
-  width: 80,
+  width: 100,
   fontSize: 16,
   fontFamily: "Pangolin",
 }));
