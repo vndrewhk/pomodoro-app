@@ -16,6 +16,9 @@ const taskSlice = createSlice({
       );
       state.tasks = result;
     },
+    deleteAllTasks(state) {
+      state.tasks = [];
+    },
   },
 });
 

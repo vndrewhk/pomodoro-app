@@ -76,10 +76,10 @@ const TaskForm = () => {
     localStorage.setItem("orderMax", orderVal);
     // preserve an order to maintain order, whenever the entire tasklist is cleared, set it to 0.
 
-    console.log(localStorage.length);
+    // console.log(localStorage.length);
 
     dispatch(taskActions.addTasks(taskInfo));
-
+    // setFormToggle(false);
     setTaskValue("");
   };
 
@@ -91,7 +91,7 @@ const TaskForm = () => {
           <TaskButton>Create Task</TaskButton>
         </div>
       )}
-      <DeleteAll></DeleteAll>
+
       {formToggle && (
         <form className={styles.inputContainer}>
           <div className={styles.inputForm}>
@@ -131,7 +131,7 @@ const TaskForm = () => {
           <div className={styles.inputButtons}>
             <div className={styles.inputButtonsDivider}>
               <TimerButton variant="contained" onClick={toggleFormHandler}>
-                Cancel
+                Close
               </TimerButton>
               <TimerButton
                 variant="contained"
@@ -144,6 +144,7 @@ const TaskForm = () => {
           </div>
         </form>
       )}
+      <DeleteAll></DeleteAll>
       {/* <button onClick={logInfo}>check</button> */}
     </div>
   );
