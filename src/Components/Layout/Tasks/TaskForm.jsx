@@ -13,6 +13,7 @@ import { taskActions } from "../../../store/task-slice";
 import { Button } from "@mui/material";
 import TaskButton from "../../UI/TaskButton";
 import DeleteAll from "./DeleteAll";
+// import WarningIcon from '@mui/icons-material/Warning';
 
 const TaskForm = () => {
   let taskInput = useRef(null);
@@ -144,7 +145,10 @@ const TaskForm = () => {
           </div>
         </form>
       )}
-      <DeleteAll children={"Delete All Tasks"}></DeleteAll>
+      <DeleteAll
+        bgColor={"rgba(0, 0, 0, 0.5)"}
+        children={"Delete All Tasks"}
+      ></DeleteAll>
       {/* <button onClick={logInfo}>check</button> */}
     </div>
   );

@@ -3,7 +3,10 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import WarningIcon from "@mui/icons-material/Warning";
 import { taskActions } from "../../../store/task-slice";
+import styles from "./DeleteAll.module.css";
+
 const DeleteAll = (props) => {
   const dispatch = useDispatch();
   const [confirmation, setConfirmation] = useState(false);
@@ -20,10 +23,10 @@ const DeleteAll = (props) => {
     <Box
       component="span"
       sx={{
-          marginTop:5,
+        marginTop: 5,
         p: 0.5,
         border: "1px solid grey",
-        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        backgroundColor: props.bgColor,
       }}
     >
       {!confirmation && (
@@ -33,9 +36,11 @@ const DeleteAll = (props) => {
       )}
       {confirmation && (
         <Box component="span">
-          <p>
-            Are you sure? This <b>CANNOT</b> be undone.
+          <p className={styles.warningText}>
+            <WarningIcon></WarningIcon>Are you sure? This{" "}
+            <b>&nbsp;CANNOT&nbsp;</b> be undone.
           </p>
+          {/* should add confirmation *after deleting* as well  */}
           <Button onClick={deleteHandler}>Delete</Button>
 
           <Button onClick={confirmationHandler.bind(null, false)}>

@@ -4,7 +4,7 @@ import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import styles from "./Options.module.css";
 import { Button } from "@mui/material";
 import DeleteAll from "../Layout/Tasks/DeleteAll";
-
+import WarningIcon from "@mui/icons-material/Warning";
 const Options = () => {
   return (
     <div>
@@ -31,9 +31,11 @@ const Options = () => {
       </div>
       <div className={styles.options}>
         <DeleteAll
+          bgColor={"rgba(255, 0, 0, 0.65)"}
           children={
             <>
-              Delete All Tasks<DeleteSweepIcon></DeleteSweepIcon>
+              <WarningIcon></WarningIcon>Delete All Tasks
+              <DeleteSweepIcon></DeleteSweepIcon>
             </>
           }
         ></DeleteAll>
