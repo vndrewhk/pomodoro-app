@@ -12,6 +12,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { taskActions } from "../../../store/task-slice";
 import { Button } from "@mui/material";
 import TaskButton from "../../UI/TaskButton";
+import DeleteAll from "./DeleteAll";
 
 const TaskForm = () => {
   let taskInput = useRef(null);
@@ -90,6 +91,7 @@ const TaskForm = () => {
           <TaskButton>Create Task</TaskButton>
         </div>
       )}
+      <DeleteAll></DeleteAll>
       {formToggle && (
         <form className={styles.inputContainer}>
           <div className={styles.inputForm}>
@@ -107,16 +109,17 @@ const TaskForm = () => {
               }}
               value={taskValue}
             />
-            <LocalizationProvider
-      
-              dateAdapter={AdapterDateFns}
-            >
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
               <DateTimePicker
-           
-                renderInput={(props) => <TextField         sx={{
-                  input: { color: "white" },
-                  label: { color: "white" },
-                }}{...props} />}
+                renderInput={(props) => (
+                  <TextField
+                    sx={{
+                      input: { color: "white" },
+                      label: { color: "white" },
+                    }}
+                    {...props}
+                  />
+                )}
                 label="Due Date"
                 value={value}
                 onChange={(newValue) => {
