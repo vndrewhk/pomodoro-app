@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { taskActions } from "../../../store/task-slice";
-const DeleteAll = () => {
+const DeleteAll = (props) => {
   const dispatch = useDispatch();
   const [confirmation, setConfirmation] = useState(false);
   const confirmationHandler = (param) => {
@@ -17,10 +17,20 @@ const DeleteAll = () => {
     confirmationHandler(false);
   };
   return (
-    <Box component="span" sx={{ p: 2, border: "1px dashed grey" }}>
-      <Button onClick={confirmationHandler.bind(null, true)}>
-        Delete ALL Tasks
-      </Button>
+    <Box
+      component="span"
+      sx={{
+          marginTop:5,
+        p: 0.5,
+        border: "1px solid grey",
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+      }}
+    >
+      {!confirmation && (
+        <Button onClick={confirmationHandler.bind(null, true)}>
+          {props.children}
+        </Button>
+      )}
       {confirmation && (
         <Box component="span">
           <p>

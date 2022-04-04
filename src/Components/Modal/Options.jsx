@@ -3,6 +3,7 @@ import NightMode from "../Layout/Header/NightMode";
 import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import styles from "./Options.module.css";
 import { Button } from "@mui/material";
+import DeleteAll from "../Layout/Tasks/DeleteAll";
 
 const Options = () => {
   return (
@@ -29,11 +30,13 @@ const Options = () => {
         <span>Night Mode</span>
       </div>
       <div className={styles.options}>
-        <Button variant="contained">
-          {/* make this another component, "are you sure? this cannot be undone" */}
-          <DeleteSweepIcon></DeleteSweepIcon>
-          <span>Clear Tasks</span>
-        </Button>
+        <DeleteAll
+          children={
+            <>
+              Delete All Tasks<DeleteSweepIcon></DeleteSweepIcon>
+            </>
+          }
+        ></DeleteAll>
       </div>
     </div>
   );

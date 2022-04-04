@@ -144,7 +144,7 @@ const TaskForm = () => {
           </div>
         </form>
       )}
-      <DeleteAll></DeleteAll>
+      <DeleteAll children={"Delete All Tasks"}></DeleteAll>
       {/* <button onClick={logInfo}>check</button> */}
     </div>
   );
